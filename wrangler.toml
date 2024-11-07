@@ -1,1 +1,8 @@
+name = "GBN API"
+type = "python"
+account_id = "c004c08ddbdaf112c2ff7f1099211a6f"
+workers_dev = true
+compatibility_date = "2024-11-06"
+compatibility_flags = ["python_workers"]
+main = "main.py"
 
