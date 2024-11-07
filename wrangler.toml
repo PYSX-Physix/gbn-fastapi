@@ -1,8 +1,6 @@
 name = "gbn-api"
-type = "python"
 account_id = "c004c08ddbdaf112c2ff7f1099211a6f"
+main = "src/worker.py"
 workers_dev = true
-compatibility_date = "2024-11-06"
 compatibility_flags = ["python_workers"]
-main = "main.py"
-
+compatibility_date = "2024-11-06"
