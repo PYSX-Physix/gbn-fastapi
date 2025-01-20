@@ -25,6 +25,11 @@ class Article(BaseModel):
 
 articles: Dict[str, Article] = {}
 
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the GBN FAST API!"}
+
 @app.get("/articles/", response_model=List[Article])
 async def get_articles():
     return list(articles.values())[::-1]
