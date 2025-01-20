@@ -50,8 +50,55 @@ articles: Dict[str, Article] = {
                 {"type": "paragraph", "text": "To conclude, the lawsuit will need to be dependantly funded which you can participate in. Players and server owners hope justice is brought to Mojag for violating EU law."}
             ]
         )
+    ),
+    "XDefiant is Shutting Down": Article(
+        name="XDefiant is Shutting Down",
+        image="https://gbn-api.pages.dev/images/IMG_0416.jpeg",
+        date="2024-12-05",
+        details=ArticleDetails(
+            description="In a surprising turn of events, Ubisoft has announced the shutdown of its free-to-play first-person shooter, XDefiant. The game, which was launched in May 2024, will see its servers go offline on June 3, 2025.",
+            content=[
+                {"type": "subheader", "text": "A Good Start"},
+                {"type": "paragraph", "text": "XDefiant initially showed great promise, breaking Ubisoft's internal records by surpassing five million players faster than any previous game. The game was praised for its fast-paced gameplay and unique factions, drawing comparisons to popular titles like Call of Duty."},
+                {"type": "subheader", "text": "The Decline"},
+                {"type": "paragraph", "text": "Despite its strong start, XDefiant struggled to maintain its player base. By October, rumors of a potential shutdown began to circulate, which were initially denied by Ubisoft. However, the game's player numbers continued to dwindle, leading to the difficult decision to discontinue the game."},
+                {"type": "subheader", "text": "Ubisoft In the Background"},
+                {"type": "paragraph", "text": "Although XDefiant was a huge success when it first launched, Ubisoft behind the scenes was struggling to make money and profit from their titles. As a result of this they had to lay off hundreds of employees."},
+                {"type": "subheader", "text": "The Impact on Ubisoft"},
+                {"type": "paragraph", "text": "The shutdown of XDefiant is part of a broader restructuring at Ubisoft, which includes the closure of its San Francisco and Osaka studios, affecting nearly 300 employees. Ubisoft's CEO, Yves Guillemot, acknowledged the challenges the company faces but expressed commitment to navigating these turbulent times and finding solutions to regain momentum."},
+                {"type": "subheader", "text": "Community Reaction"},
+                {"type": "paragraph", "text": "The announcement has left many fans disappointed. Players have taken to social media to express their sadness and frustration, with some even starting petitions to save the game. Despite the shutdown, Ubisoft has promised to release all planned content for Season 3 and provide refunds to players who made recent purchases."},
+                {"type": "subheader", "text": "FaQ About XDefiant"},
+                {"type": "paragraph", "text": "Although XDefiant will be shutting down, the servers will not go offline until June 3rd, 2025."},
+                {"type": "subheader", "text": "Refunds"},
+                {"type": "paragraph", "text": "Players who made any purchases within the last 30 days will recive a refund for their purchases. Anyone who bought the Ultimate Founders Addition will recive a full refund."},
+                {"type": "subheader", "text": "Rewards & Cosmetics"},
+                {"type": "paragraph", "text": "Ubisoft decided that because the game was going to shut down, players will be able to use any weapon cosmetic or any skins that were added in the game along with season 3 rewards."},
+                {"type": "subheader", "text": "Closed Registration"},
+                {"type": "paragraph", "text": "As of December 3, 2024 players will not be able to sign-up to play XDefiant. Players who already have the game owned on their account are able to download and install the game and play until June 3rd, 2025"}
+            ]
+        )
+    ),
+    "Fortnite Responds to Cheating Problem": Article(
+        name="Fortnite Responds to Cheating Problem",
+        image="https://gbn-api.pages.dev/images/fortnite-fncs-2025-champion-drake-community-cup-1920x1080.jpg",
+        date="2024-11-29",
+        details=ArticleDetails(
+            description="Fortnite responds to the player base about the cheating problem.",
+            content=[
+                {"type": "subheader", "text": "The Issue"},
+                {"type": "paragraph", "text": "Fortnite has been facing a significant cheating problem, with players using hacks and cheats to gain an unfair advantage. This has led to frustration among the player base and calls for action from the game's developers."},
+                {"type": "subheader", "text": "Epic Games' Response"},
+                {"type": "paragraph", "text": "Epic Games, the developer of Fortnite, has acknowledged the issue and is taking steps to address it. They have implemented new anti-cheat measures and are working to improve the game's security to prevent cheating."},
+                {"type": "subheader", "text": "Community Feedback"},
+                {"type": "paragraph", "text": "The community has responded positively to Epic Games' efforts to combat cheating. Players have expressed their appreciation for the developers' commitment to maintaining a fair and enjoyable gaming experience."},
+                {"type": "subheader", "text": "Future Plans"},
+                {"type": "paragraph", "text": "Epic Games has announced that they will continue to monitor the situation and make further improvements as needed. They are also encouraging players to report any instances of cheating they encounter to help keep the game fair for everyone."}
+            ]
+        )
     )
 }
+
 
 @app.get("/")
 async def read_root():
