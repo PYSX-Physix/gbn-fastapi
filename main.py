@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Union, Dict
+from urllib.parse import quote
 
 app = FastAPI()
 
@@ -124,6 +125,7 @@ async def update_article(article_name: str, updated_article: Article):
 
 @app.delete("/articles/{article_name}", response_model=Article)
 async def delete_article(article_name: str):
-    if article_name not in articles:
+    encoded_name = quote(article_name)
+    if encoded_name not in articles:
         raise HTTPException(status_code=404, detail="Article not found")
-    return articles.pop(article_name)
+    return articles.pop(encoded_name)
