@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Dict, Union
@@ -105,7 +105,9 @@ async def read_root():
     return {"message": "Welcome to the Varomic Games API!"}
 
 @app.get("/articles/", response_model=List[Article])
-async def get_articles():
+async def get_articles(search: Union[str, None] = Query(default=None, alias="search")):
+    if search:
+        return [article for article in articles.values() if search.lower() in article.name.lower()]
     return list(articles.values())[::-1]
 
 @app.post("/articles/", response_model=Article)
