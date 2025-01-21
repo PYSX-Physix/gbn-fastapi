@@ -124,8 +124,13 @@ async def update_article(article_name: str, updated_article: Article):
     articles[article_name] = updated_article
     return updated_article
 
-@app.delete("/articles/{article_name}", response_model=Article)
-async def delete_article(article_name: str):
-    if article_name not in articles:
-        raise HTTPException(status_code=404, detail="Article not found")
-    return articles.pop(article_name)
+@app.delete("/articles/", response_model=List[Article])
+async def delete_articles(search: Union[str, None] = Query(default=None, alias="search")):
+    if search:
+        to_delete = [name for name in articles if search.lower() in name.lower()]
+        if not to_delete:
+            raise HTTPException(status_code=404, detail="No articles found matching the search query")
+        for name in to_delete:
+            articles.pop(name)
+        return [articles[name] for name in to_delete]
+    raise HTTPException(status_code=400, detail="Search query is required to delete articles")
