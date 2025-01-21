@@ -1,8 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List, Union, Dict
-from urllib.parse import quote
+from typing import List, Dict, Union
 
 app = FastAPI()
 
@@ -30,7 +29,7 @@ class Article(BaseModel):
     date: str
     details: ArticleDetails
 
-
+# Initialize an empty dictionary to store articles
 articles: Dict[str, Article] = {
     "Mojang Might be Getting Sued": Article(
         name="Mojang Might be Getting Sued",
@@ -125,7 +124,6 @@ async def update_article(article_name: str, updated_article: Article):
 
 @app.delete("/articles/{article_name}", response_model=Article)
 async def delete_article(article_name: str):
-    encoded_name = quote(article_name)
-    if encoded_name not in articles:
+    if article_name not in articles:
         raise HTTPException(status_code=404, detail="Article not found")
-    return articles.pop(encoded_name)
+    return articles.pop(article_name)
