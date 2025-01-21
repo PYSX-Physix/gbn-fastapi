@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import List, Dict, Union
+from typing import List, Union, Dict
 
 app = FastAPI()
 
@@ -28,6 +28,7 @@ class Article(BaseModel):
     image: str
     date: str
     details: ArticleDetails
+
 
 articles: Dict[str, Article] = {
     "Mojang Might be Getting Sued": Article(
@@ -98,7 +99,6 @@ articles: Dict[str, Article] = {
         )
     )
 }
-
 
 @app.get("/")
 async def read_root():
