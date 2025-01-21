@@ -7,7 +7,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -102,7 +102,7 @@ articles: Dict[str, Article] = {
 
 @app.get("/")
 async def read_root():
-    return {"message": "Welcome to the GBN FAST API!"}
+    return {"message": "Welcome to the Varomic Games API!"}
 
 @app.get("/articles/", response_model=List[Article])
 async def get_articles():
