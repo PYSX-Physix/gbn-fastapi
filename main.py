@@ -1,13 +1,14 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import List
+from typing import List, Union
 
 app = FastAPI()
 
 
 class Content(BaseModel):
     type: str  # e.g., "text", "image", "header", "bullet"
-    value: str  # The actual content
+    text: Union[str, None] = None
+    url: Union[str, None] = None
     
 class Details(BaseModel):
     description: str
