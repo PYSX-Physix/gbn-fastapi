@@ -35,7 +35,7 @@ async def create_news(news_item: NewsItem):
 
 @app.get("/news/", response_model=List[NewsItem])
 async def get_news():
-    return news_db
+    return news_db[::-1]
 
 @app.get("/news/{news_id}", response_model=NewsItem)
 async def get_news_item(news_id: int):
