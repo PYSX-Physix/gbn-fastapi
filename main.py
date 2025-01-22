@@ -6,7 +6,7 @@ app = FastAPI()
 
 
 class Content(BaseModel):
-    type: str  # e.g., "text", "image", "header", "bullet"
+    type: str
     text: Union[str, None] = None
     url: Union[str, None] = None
     
@@ -18,7 +18,7 @@ class NewsItem(BaseModel):
     name: str
     image: str
     date: str
-    details: List[Details]  # List of content items
+    details: Details
 
 # In-memory storage for news items
 news_db: List[NewsItem] = []
