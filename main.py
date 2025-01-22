@@ -40,8 +40,7 @@ async def root():
     return {"message": "Welcome to the News API!"}
 
 @app.post("/news/")
-async def create_news(news_item: NewsItem, request: Request):
-    verify_secret_key(request)
+async def create_news(news_item: NewsItem):
     news_db.append(news_item)
     return news_item
 
@@ -56,8 +55,7 @@ async def get_news_item(news_id: int):
     return news_db[news_id]
 
 @app.put("/news/{news_id}", response_model=NewsItem)
-async def update_news(news_id: int, updated_news: NewsItem, request: Request):
-    verify_secret_key(request)
+async def update_news(news_id: int, updated_news: NewsItem):
     if news_id >= len(news_db):
         raise HTTPException(status_code=404, detail="News item not found")
     news_db[news_id] = updated_news
