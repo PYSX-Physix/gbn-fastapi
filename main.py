@@ -4,15 +4,20 @@ from typing import List
 
 app = FastAPI()
 
+
 class Content(BaseModel):
     type: str  # e.g., "text", "image", "header", "bullet"
     value: str  # The actual content
+    
+class Details(BaseModel):
+    description: str
+    content: List[Content]
 
 class NewsItem(BaseModel):
-    title: str
+    name: str
+    image: str
     date: str
-    desc: str
-    content: List[Content]  # List of content items
+    details: List[Details]  # List of content items
 
 # In-memory storage for news items
 news_db: List[NewsItem] = []
