@@ -10,11 +10,17 @@ class Content(BaseModel):
 
 class NewsItem(BaseModel):
     title: str
+    date: str
+    desc: str
     content: List[Content]  # List of content items
-    author: str
 
 # In-memory storage for news items
 news_db: List[NewsItem] = []
+
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the News API!"}
 
 @app.post("/news/")
 async def create_news(news_item: NewsItem):
