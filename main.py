@@ -11,8 +11,7 @@ SECRET_KEY = "starwars3"
 
 class Content(BaseModel):
     type: str
-    text: Union[str, None] = None
-    url: Union[str, None] = None
+    value: Union[str, None] = None
     
 class Details(BaseModel):
     description: str
