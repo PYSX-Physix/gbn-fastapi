@@ -25,7 +25,7 @@ class NewsItem(BaseModel):
     details: Details
 
 # In-memory storage for news items
-news_db: List[NewsItem] = []
+news_db: dict[NewsItem] = []
 
 def verify_secret_key(request: Request):
     secret_key = request.headers.get("X-Secret-Key")
