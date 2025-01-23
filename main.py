@@ -61,8 +61,7 @@ async def update_news(news_id: int, updated_news: NewsItem):
     return updated_news
 
 @app.delete("/news/{news_id}", response_model=NewsItem)
-async def delete_news(news_id: int, request: Request):
-    verify_secret_key(request)
+async def delete_news(news_id: int):
     if news_id >= len(news_db):
         raise HTTPException(status_code=404, detail="News item not found")
     return news_db.pop(news_id)
